@@ -1,14 +1,17 @@
-from flask import Flask
-import os
+import schedule
+import time
+from datetime import datetime
 
-app = Flask(__name__)
+def job():
+    print("I'm working...")
+    print(datetime.now())
+    f = open("demofile2.txt", "a")
+    f.write(f"bla bla \n")
+    f.close()
 
-@app.route('/')
-def hello():
-    return "Hello World!"
+schedule.every(10).minutes.do(job)
 
-if __name__ == '__main__':
-    port = os.environ.get('FLASK_PORT') or 8080
-    port = int(port)
 
-    app.run(port=port,host='0.0.0.0')
+while True:
+    schedule.run_pending()
+    time.sleep(1)
