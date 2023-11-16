@@ -13,6 +13,7 @@ metadata:
   tags:
     - Python
     - Pip
+    - Flask
   supportUrl: https://github.com/devfile-samples/devfile-support#support-information
   attributes:
     alpha.dockerimage-port: 8081
